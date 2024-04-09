@@ -1,0 +1,748 @@
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 78
+Method: DELETE, Path: /api/books/7941af81-2306-4b23-95fb-ebe8da607408, Status Code: 204, 
+"DELETE /api/books/7941af81-2306-4b23-95fb-ebe8da607408 HTTP/1.1" 204 0
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 78
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 67
+Internal Server Error: /api/books/
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\views.py", line 169, in create
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 444, in run_validation
+    self.run_validators(value)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 477, in run_validators
+    super().run_validators(to_validate)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\fields.py", line 555, in run_validators
+    validator(value)
+  File "D:\programms\TestTaskMoscow\library\library_main_app\validators.py", line 7, in __call__
+    if key not in self.fields:
+                  ^^^^^^^^^^^
+AttributeError: 'UnknownFieldsValidator' object has no attribute 'fields'
+Method: POST, Path: /api/books/, Status Code: 500, 
+"POST /api/books/ HTTP/1.1" 500 115446
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/books/
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\views.py", line 169, in create
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 444, in run_validation
+    self.run_validators(value)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 477, in run_validators
+    super().run_validators(to_validate)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\fields.py", line 555, in run_validators
+    validator(value)
+  File "D:\programms\TestTaskMoscow\library\library_main_app\validators.py", line 11, in __call__
+    if key not in self.fields:
+                  ^^^^^^^^^^^
+AttributeError: 'UnknownFieldsValidator' object has no attribute 'fields'
+Method: POST, Path: /api/books/, Status Code: 500, 
+"POST /api/books/ HTTP/1.1" 500 116025
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 72
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 72
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 72
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 72
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 72
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 72
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 80
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 80
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 67
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 80
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/books/
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\views.py", line 169, in create
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 444, in run_validation
+    self.run_validators(value)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 477, in run_validators
+    super().run_validators(to_validate)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\fields.py", line 553, in run_validators
+    validator(value, self)
+  File "D:\programms\TestTaskMoscow\library\library_main_app\validators.py", line 12, in __call__
+    print(data.keys['name'])
+          ~~~~~~~~~^^^^^^^^
+TypeError: 'builtin_function_or_method' object is not subscriptable
+Method: POST, Path: /api/books/, Status Code: 500, 
+"POST /api/books/ HTTP/1.1" 500 116843
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 80
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 48
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 80
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/books/
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\views.py", line 169, in create
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 495, in to_internal_value
+    for field in fields:
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 378, in _writable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for model `Book` in `library_main_app.serializers.BookSerializer`.
+Method: POST, Path: /api/books/, Status Code: 500, 
+"POST /api/books/ HTTP/1.1" 500 134547
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 80
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 80
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 80
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 71
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /api/books/
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\views.py", line 170, in create
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 501, in to_internal_value
+    validated_value = validate_method(validated_value)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\serializers.py", line 25, in validate_title
+    a.__call__(value)
+TypeError: TitleFieldValidator.__call__() missing 1 required positional argument: 'value'
+Method: POST, Path: /api/books/, Status Code: 500, 
+"POST /api/books/ HTTP/1.1" 500 112485
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 88
+Internal Server Error: /api/books/
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "title" отношения "library_main_app_book" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (c3939f64-24fd-42f6-980c-50e1853c143c, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\views.py", line 171, in create
+    serializer.save()
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "title" отношения "library_main_app_book" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (c3939f64-24fd-42f6-980c-50e1853c143c, null).
+
+Method: POST, Path: /api/books/, Status Code: 500, 
+"POST /api/books/ HTTP/1.1" 500 187047
+Internal Server Error: /api/books/
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "title" отношения "library_main_app_book" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (d90ad8dd-a35f-4e4b-8cf6-a3576ca7aa44, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\views.py", line 171, in create
+    serializer.save()
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "title" отношения "library_main_app_book" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (d90ad8dd-a35f-4e4b-8cf6-a3576ca7aa44, null).
+
+Method: POST, Path: /api/books/, Status Code: 500, 
+"POST /api/books/ HTTP/1.1" 500 187139
+Internal Server Error: /api/books/
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: ОШИБКА:  значение NULL в столбце "title" отношения "library_main_app_book" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (dc9f1c3a-faaf-40fc-b0a9-1f9a47abce3d, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\library\library_main_app\views.py", line 171, in create
+    serializer.save()
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\rest_framework\serializers.py", line 989, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\programms\TestTaskMoscow\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: ОШИБКА:  значение NULL в столбце "title" отношения "library_main_app_book" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (dc9f1c3a-faaf-40fc-b0a9-1f9a47abce3d, null).
+
+Method: POST, Path: /api/books/, Status Code: 500, 
+"POST /api/books/ HTTP/1.1" 500 186877
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 95
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 97
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 80
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 400, 
+Bad Request: /api/books/
+"POST /api/books/ HTTP/1.1" 400 80
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 75
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\validators.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 77
+D:\programms\TestTaskMoscow\library\library_main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 77
+D:\programms\TestTaskMoscow\library\library_main_app\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Method: DELETE, Path: /api/books/d6cf787d-adb6-4442-8e0e-79c71fa0b091, Status Code: 204, 
+"DELETE /api/books/d6cf787d-adb6-4442-8e0e-79c71fa0b091 HTTP/1.1" 204 0
+Method: GET, Path: /admin, Status Code: 301, 
+"GET /admin HTTP/1.1" 301 0
+Method: GET, Path: /admin/, Status Code: 302, 
+"GET /admin/ HTTP/1.1" 302 0
+Method: GET, Path: /admin/login/, Status Code: 200, 
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4359
+"GET /static/admin/css/base.css HTTP/1.1" 200 21544
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2682
+"GET /static/admin/css/login.css HTTP/1.1" 200 958
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 17905
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+Method: GET, Path: /favicon.ico, Status Code: 404, 
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2215
+Method: POST, Path: /admin/login/, Status Code: 302, 
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+Method: GET, Path: /admin/, Status Code: 200, 
+"GET /admin/ HTTP/1.1" 200 11283
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+Method: GET, Path: /admin/library_main_app/book/, Status Code: 200, 
+"GET /admin/library_main_app/book/ HTTP/1.1" 200 14625
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6811
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9042
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8067
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+Method: GET, Path: /admin/library_main_app/book/1581b234-bd83-4f84-a5ca-8c2488f4951c/change/, Status Code: 200, 
+"GET /admin/library_main_app/book/1581b234-bd83-4f84-a5ca-8c2488f4951c/change/ HTTP/1.1" 200 9492
+"GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11800
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+Method: GET, Path: /admin/library_main_app/book/1581b234-bd83-4f84-a5ca-8c2488f4951c/delete/, Status Code: 200, 
+"GET /admin/library_main_app/book/1581b234-bd83-4f84-a5ca-8c2488f4951c/delete/ HTTP/1.1" 200 8484
+"GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+Method: POST, Path: /admin/library_main_app/book/1581b234-bd83-4f84-a5ca-8c2488f4951c/delete/, Status Code: 302, 
+"POST /admin/library_main_app/book/1581b234-bd83-4f84-a5ca-8c2488f4951c/delete/ HTTP/1.1" 302 0
+Method: GET, Path: /admin/library_main_app/book/, Status Code: 200, 
+"GET /admin/library_main_app/book/ HTTP/1.1" 200 14776
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+Method: POST, Path: /admin/library_main_app/book/, Status Code: 200, 
+"POST /admin/library_main_app/book/ HTTP/1.1" 200 10332
+Method: POST, Path: /admin/library_main_app/book/, Status Code: 302, 
+"POST /admin/library_main_app/book/ HTTP/1.1" 302 0
+Method: GET, Path: /admin/library_main_app/book/, Status Code: 200, 
+"GET /admin/library_main_app/book/ HTTP/1.1" 200 15622
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+Method: POST, Path: /admin/library_main_app/book/, Status Code: 200, 
+"POST /admin/library_main_app/book/ HTTP/1.1" 200 9073
+- Broken pipe from ('127.0.0.1', 27290)
+Method: POST, Path: /admin/library_main_app/book/, Status Code: 302, 
+"POST /admin/library_main_app/book/ HTTP/1.1" 302 0
+Method: GET, Path: /admin/library_main_app/book/, Status Code: 200, 
+"GET /admin/library_main_app/book/ HTTP/1.1" 200 15838
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+Method: GET, Path: /admin/library_main_app/book/, Status Code: 200, 
+"GET /admin/library_main_app/book/?p=2 HTTP/1.1" 200 14686
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+Method: GET, Path: /admin/library_main_app/book/, Status Code: 200, 
+"GET /admin/library_main_app/book/?p=1 HTTP/1.1" 200 15980
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+Method: GET, Path: /admin/library_main_app/book/, Status Code: 200, 
+"GET /admin/library_main_app/book/ HTTP/1.1" 200 15694
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+Method: GET, Path: /admin/library_main_app/author/, Status Code: 200, 
+"GET /admin/library_main_app/author/ HTTP/1.1" 200 14833
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+Method: GET, Path: /admin/library_main_app/book/, Status Code: 200, 
+"GET /admin/library_main_app/book/ HTTP/1.1" 200 15694
+Method: GET, Path: /admin/jsi18n/, Status Code: 200, 
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+D:\programms\TestTaskMoscow\library\library_main_app\urls.py changed, reloading.
+Watching for file changes with StatReloader
+D:\programms\TestTaskMoscow\library\library_main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+Method: POST, Path: /api/books/, Status Code: 201, 
+"POST /api/books/ HTTP/1.1" 201 75
+Method: GET, Path: /api/books/c986851b-a464-48f9-bef2-b9ba91223d01, Status Code: 200, 
+"GET /api/books/c986851b-a464-48f9-bef2-b9ba91223d01 HTTP/1.1" 200 75
+D:\programms\TestTaskMoscow\library\library_main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+Method: GET, Path: /api/books/, Status Code: 200, 
+"GET /api/books/?page=2 HTTP/1.1" 200 1150
+Method: GET, Path: /api/authors/, Status Code: 200, 
+"GET /api/authors/ HTTP/1.1" 200 372

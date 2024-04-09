@@ -1,3 +1,4 @@
 # Игнорируем всю папку venv
 .venv/
 .idea/
+library/library/settings.py

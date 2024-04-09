@@ -11,7 +11,7 @@ from .serializers import BookSerializer, AuthorSerializer
 
 
 # Create your views here.
-class AuthorPagination(PageNumberPagination):
+class MyPagination(PageNumberPagination):
     page_size = 2  # Задаем размер страницы, по умолчанию 10
 
     def get_paginated_response(self, data):
@@ -27,13 +27,13 @@ class AuthorPagination(PageNumberPagination):
             'results': data
         })
 class AuthorViewSet(viewsets.ViewSet):
-    mypagination_class = AuthorPagination()
+    mypagination_class = MyPagination()
     serializer_class = AuthorSerializer
     @extend_schema(
         tags=['Get'],
         summary="Получение автора по UUID",
     )
-    def getOne(self, request, pk=None):
+    def retrieve(self, request, pk=None):
         author = get_object_or_404(Author, pk=pk)
         serializer = AuthorSerializer(author, many=False)
         return Response(serializer.data)
@@ -59,18 +59,9 @@ class AuthorViewSet(viewsets.ViewSet):
         resp = self.mypagination_class.get_paginated_response(serializer.data)
         return resp
 
-    def retrieve(self, request, pk=None):
-        queryset = Author.objects.all()
-        author = get_object_or_404(queryset, pk=pk)
-        serializer = AuthorSerializer(author)
-        return Response(serializer.data)
-
     @extend_schema(
         tags=['Post'],
         summary="Добавление автора",
-        parameters = [
-            #OpenApiParameter(name='title',  required=True, type=str, description='Имя автора')
-         ],
         request=AuthorSerializer
     )
     def create(self, request):
@@ -104,31 +95,15 @@ class AuthorViewSet(viewsets.ViewSet):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class BookPagination(PageNumberPagination):
-    page_size = 2  # Задаем размер страницы, по умолчанию 10
-
-    def get_paginated_response(self, data):
-        total_count = self.page.paginator.count
-        num_pages = int(total_count / self.page_size) if total_count % self.page_size == 0 else int(total_count / self.page_size) + 1
-        return Response({
-            'links': {
-                'next': self.get_next_link(),
-                'previous': self.get_previous_link()
-            },
-            'count': total_count,
-            'pages': num_pages,
-            'results': data
-        })
-
 class BookViewSet(viewsets.ViewSet):
-    mypagination_class = BookPagination()
+    mypagination_class = MyPagination()
     serializer_class = BookSerializer
 
     @extend_schema(
         tags=['Get'],
         summary="Получение книги по UUID",
     )
-    def getOne(self, request, pk=None):
+    def retrieve(self, request, pk=None):
         book = get_object_or_404(Book, pk=pk)
         serializer = BookSerializer(book, many=False)
         return Response(serializer.data)
@@ -153,12 +128,6 @@ class BookViewSet(viewsets.ViewSet):
         serializer = BookSerializer(p, many=True)
         resp = self.mypagination_class.get_paginated_response(serializer.data)
         return resp
-
-    def retrieve(self, request, pk=None):
-        queryset = Book.objects.all()
-        book = get_object_or_404(queryset, pk=pk)
-        serializer = BookSerializer(book)
-        return Response(serializer.data)
 
     @extend_schema(
         tags=['Post'],
