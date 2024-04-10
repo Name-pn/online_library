@@ -10,7 +10,7 @@ class UuidSerializer(serializers.Serializer):
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = '__all__'
+        fields = "__all__"
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -19,7 +19,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Book
-        fields = ['id', 'title', 'authors']
+        fields = ["id", "title", "authors"]
 
     def validate_title(self, value):
         return self.titleVal(value)
@@ -31,7 +31,7 @@ class GenreSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Genre
-        fields = ['id', 'title', 'books']
+        fields = ["id", "title", "books"]
 
     def validate_title(self, value):
         return self.titleVal(value)

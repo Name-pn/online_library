@@ -6,16 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('library_main_app', '0003_alter_author_id'),
+        ("library_main_app", "0003_alter_author_id"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='author',
-            name='books',
+            model_name="author",
+            name="books",
             field=models.ManyToManyField(
-                blank=True,
-                related_name='authors',
-                to='library_main_app.book'),
+                blank=True, related_name="authors", to="library_main_app.book"
+            ),
         ),
     ]

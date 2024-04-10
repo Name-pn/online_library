@@ -7,22 +7,31 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('library_main_app', '0006_author_books'),
+        ("library_main_app", "0006_author_books"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Genre',
+            name="Genre",
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4,
-                                        primary_key=True,
-                                        serialize=False,
-                                        unique=True)),
-                ('title', models.CharField(max_length=255, unique=True)),
-                ('books',
-                 models.ManyToManyField(blank=True,
-                                        related_name='books_by_genre',
-                                        to='library_main_app.book')),
+                (
+                    "id",
+                    models.UUIDField(
+                        default=uuid.uuid4,
+                        primary_key=True,
+                        serialize=False,
+                        unique=True,
+                    ),
+                ),
+                ("title", models.CharField(max_length=255, unique=True)),
+                (
+                    "books",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="books_by_genre",
+                        to="library_main_app.book",
+                    ),
+                ),
             ],
         ),
     ]

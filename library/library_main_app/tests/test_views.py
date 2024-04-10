@@ -9,12 +9,12 @@ from library_main_app.models import Book, Author
 class TestViews(TestCase):
     def setUp(self):
         self.client = Client()
-        self.books_url = reverse('books')
-        self.author_url = reverse('authors')
+        self.books_url = reverse("books")
+        self.author_url = reverse("authors")
 
         self.book_uuid = uuid.uuid4()
         self.book1 = Book.objects.create(
-            title='Test book',
+            title="Test book",
             id=self.book_uuid,
         )
 
@@ -24,8 +24,8 @@ class TestViews(TestCase):
             id=self.author_uuid,
         )
 
-        self.book_detail_url = reverse('book_by_uuid', args=[str(self.book_uuid)])
-        self.author_detail_url = reverse('author_by_uuid', args=[str(self.author_uuid)])
+        self.book_detail_url = reverse("book_by_uuid", args=[str(self.book_uuid)])
+        self.author_detail_url = reverse("author_by_uuid", args=[str(self.author_uuid)])
 
     def test_books_page_GET(self):
         response = self.client.get(self.books_url)
@@ -45,18 +45,24 @@ class TestViews(TestCase):
 
     def test_book_POST(self):
         pre_count = Book.objects.count()
-        response = self.client.post(self.books_url, {
-            'title': 'POST book title',
-        })
+        response = self.client.post(
+            self.books_url,
+            {
+                "title": "POST book title",
+            },
+        )
         self.assertEqual(response.status_code, 201)
         post_count = Book.objects.count()
         self.assertEqual(post_count, pre_count + 1)
 
     def test_author_POST(self):
         pre_count = Author.objects.count()
-        response = self.client.post(self.author_url, {
-            'title': 'POST author title',
-        })
+        response = self.client.post(
+            self.author_url,
+            {
+                "title": "POST author title",
+            },
+        )
         self.assertEqual(response.status_code, 201)
         post_count = Author.objects.count()
         self.assertEqual(post_count, pre_count + 1)
@@ -75,43 +81,41 @@ class TestViews(TestCase):
             Author.objects.get(id=self.author_uuid)
 
     def test_book_PUT(self):
-        response = self.client.put(self.book_detail_url, {
-            'title': 'PUT book title UPDATED'
-        }, format='json', content_type='application/json')
+        response = self.client.put(
+            self.book_detail_url,
+            {"title": "PUT book title UPDATED"},
+            format="json",
+            content_type="application/json",
+        )
         data = response.data
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(Book.objects.get(id=self.book_uuid).title, data['title'])
+        self.assertEqual(Book.objects.get(id=self.book_uuid).title, data["title"])
 
     def test_author_PUT(self):
-        response = self.client.put(self.author_detail_url, {
-            'title': 'PUT author title'
-        }, format='json', content_type='application/json')
+        response = self.client.put(
+            self.author_detail_url,
+            {"title": "PUT author title"},
+            format="json",
+            content_type="application/json",
+        )
         data = response.data
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(Author.objects.get(id=self.author_uuid).title, data['title'])
+        self.assertEqual(Author.objects.get(id=self.author_uuid).title, data["title"])
 
     def test_book_search_GET(self):
-        response = self.client.get(self.books_url, {
-            'name': 'Test book'
-        })
+        response = self.client.get(self.books_url, {"name": "Test book"})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data['count'], 1)
+        self.assertEqual(response.data["count"], 1)
 
-        response = self.client.get(self.books_url, {
-            'name': 'Not exist book'
-        })
+        response = self.client.get(self.books_url, {"name": "Not exist book"})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data['count'], 0)
+        self.assertEqual(response.data["count"], 0)
 
     def test_author_search_GET(self):
-        response = self.client.get(self.author_url, {
-            'name': 'Test author'
-        })
+        response = self.client.get(self.author_url, {"name": "Test author"})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data['count'], 1)
+        self.assertEqual(response.data["count"], 1)
 
-        response = self.client.get(self.author_url, {
-            'name': 'Not exist author'
-        })
+        response = self.client.get(self.author_url, {"name": "Not exist author"})
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data['count'], 0)
+        self.assertEqual(response.data["count"], 0)

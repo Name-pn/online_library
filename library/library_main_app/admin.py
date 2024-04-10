@@ -3,20 +3,20 @@ from .models import Book, Author, Genre
 
 
 class BookAdmin(admin.ModelAdmin):
-    ordering = ('title',)
-    search_fields = ['title']
+    ordering = ("title",)
+    search_fields = ["title"]
     list_per_page = 10
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    ordering = ('title',)
-    search_fields = ['title']
+    ordering = ("title",)
+    search_fields = ["title"]
     list_per_page = 10
 
 
 class GenreAdmin(admin.ModelAdmin):
-    ordering = ('title',)
-    search_fields = ['title']
+    ordering = ("title",)
+    search_fields = ["title"]
     list_per_page = 10
 
 

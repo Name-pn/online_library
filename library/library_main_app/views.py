@@ -15,18 +15,22 @@ class MyPagination(PageNumberPagination):
 
     def get_paginated_response(self, data):
         total_count = self.page.paginator.count
-        num_pages = int(total_count / self.page_size) \
-            if total_count % self.page_size == 0 \
+        num_pages = (
+            int(total_count / self.page_size)
+            if total_count % self.page_size == 0
             else int(total_count / self.page_size) + 1
-        return Response({
-            'links': {
-                'next': self.get_next_link(),
-                'previous': self.get_previous_link()
-            },
-            'count': total_count,
-            'pages': num_pages,
-            'results': data
-        })
+        )
+        return Response(
+            {
+                "links": {
+                    "next": self.get_next_link(),
+                    "previous": self.get_previous_link(),
+                },
+                "count": total_count,
+                "pages": num_pages,
+                "results": data,
+            }
+        )
 
 
 class AuthorViewSet(viewsets.ViewSet):
@@ -34,7 +38,7 @@ class AuthorViewSet(viewsets.ViewSet):
     serializer_class = AuthorSerializer
 
     @extend_schema(
-        tags=['Автор'],
+        tags=["Автор"],
         summary="Получение автора по UUID",
     )
     def retrieve(self, request, pk=None):
@@ -43,36 +47,39 @@ class AuthorViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     @extend_schema(
-        tags=['Автор'],
+        tags=["Автор"],
         summary="Получение страницы с авторами",
         parameters=[
-            OpenApiParameter(name='page',
-                             location=OpenApiParameter.QUERY,
-                             description='Номер страницы',
-                             required=False,
-                             type=int),
-            OpenApiParameter(name='name',
-                             location=OpenApiParameter.QUERY,
-                             description='Фильтр по имени автора',
-                             required=False,
-                             type=OpenApiTypes.STR),
+            OpenApiParameter(
+                name="page",
+                location=OpenApiParameter.QUERY,
+                description="Номер страницы",
+                required=False,
+                type=int,
+            ),
+            OpenApiParameter(
+                name="name",
+                location=OpenApiParameter.QUERY,
+                description="Фильтр по имени автора",
+                required=False,
+                type=OpenApiTypes.STR,
+            ),
         ],
     )
     def list(self, request):
-        queryset = Author.objects.all().order_by('title')
-        if request.query_params.get('name'):
-            filter_value = request.query_params.get('name')
-            queryset = queryset.filter(Q(title__icontains=filter_value)
-                                       | Q(title__startswith=filter_value))
+        queryset = Author.objects.all().order_by("title")
+        if request.query_params.get("name"):
+            filter_value = request.query_params.get("name")
+            queryset = queryset.filter(
+                Q(title__icontains=filter_value) | Q(title__startswith=filter_value)
+            )
         page = self.mypagination_class.paginate_queryset(queryset, request)
         serializer = AuthorSerializer(page, many=True)
         resp = self.mypagination_class.get_paginated_response(serializer.data)
         return resp
 
     @extend_schema(
-        tags=['Автор'],
-        summary="Добавление автора",
-        request=AuthorSerializer
+        tags=["Автор"], summary="Добавление автора", request=AuthorSerializer
     )
     def create(self, request):
         serializer = AuthorSerializer(data=request.data)
@@ -81,10 +88,7 @@ class AuthorViewSet(viewsets.ViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    @extend_schema(
-        tags=['Автор'],
-        summary="Удаление автора по UUID"
-    )
+    @extend_schema(tags=["Автор"], summary="Удаление автора по UUID")
     def destroy(self, request, pk=None):
         uuid = pk
         if not uuid:
@@ -97,7 +101,7 @@ class AuthorViewSet(viewsets.ViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     @extend_schema(
-        tags=['Автор'],
+        tags=["Автор"],
         summary="Модификация автора по UUID",
         request=AuthorSerializer,
     )
@@ -116,7 +120,7 @@ class BookViewSet(viewsets.ViewSet):
     serializer_class = BookSerializer
 
     @extend_schema(
-        tags=['Книга'],
+        tags=["Книга"],
         summary="Получение книги по UUID",
     )
     def retrieve(self, request, pk=None):
@@ -125,32 +129,39 @@ class BookViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     @extend_schema(
-        tags=['Книга'],
+        tags=["Книга"],
         summary="Получение страницы с книгами",
         parameters=[
-            OpenApiParameter(name='page',
-                             location=OpenApiParameter.QUERY,
-                             description='Номер страницы',
-                             required=False, type=int),
-            OpenApiParameter(name='name',
-                             location=OpenApiParameter.QUERY,
-                             description='Поиск по названию книги',
-                             required=False, type=OpenApiTypes.STR),
+            OpenApiParameter(
+                name="page",
+                location=OpenApiParameter.QUERY,
+                description="Номер страницы",
+                required=False,
+                type=int,
+            ),
+            OpenApiParameter(
+                name="name",
+                location=OpenApiParameter.QUERY,
+                description="Поиск по названию книги",
+                required=False,
+                type=OpenApiTypes.STR,
+            ),
         ],
     )
     def list(self, request):
-        queryset = Book.objects.all().order_by('title')
-        if request.query_params.get('name'):
-            filter_value = request.query_params.get('name')
-            queryset = queryset.filter(Q(title__icontains=filter_value)
-                                       | Q(title__startswith=filter_value))
+        queryset = Book.objects.all().order_by("title")
+        if request.query_params.get("name"):
+            filter_value = request.query_params.get("name")
+            queryset = queryset.filter(
+                Q(title__icontains=filter_value) | Q(title__startswith=filter_value)
+            )
         p = self.mypagination_class.paginate_queryset(queryset, request)
         serializer = BookSerializer(p, many=True)
         resp = self.mypagination_class.get_paginated_response(serializer.data)
         return resp
 
     @extend_schema(
-        tags=['Книга'],
+        tags=["Книга"],
         summary="Добавление книги",
     )
     def create(self, request):
@@ -161,7 +172,7 @@ class BookViewSet(viewsets.ViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @extend_schema(
-        tags=['Книга'],
+        tags=["Книга"],
         summary="Удаление книги по UUID",
     )
     def destroy(self, request, pk=None):
@@ -176,9 +187,7 @@ class BookViewSet(viewsets.ViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     @extend_schema(
-        tags=['Книга'],
-        summary="Модификация книги по UUID",
-        request=BookSerializer
+        tags=["Книга"], summary="Модификация книги по UUID", request=BookSerializer
     )
     def update(self, request, pk=None):
         queryset = Book.objects.all()
@@ -195,7 +204,7 @@ class GenreViewSet(viewsets.ViewSet):
     serializer_class = GenreSerializer
 
     @extend_schema(
-        tags=['Жанр'],
+        tags=["Жанр"],
         summary="Получение жанра по UUID",
     )
     def retrieve(self, request, pk=None):
@@ -204,31 +213,39 @@ class GenreViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     @extend_schema(
-        tags=['Жанр'],
+        tags=["Жанр"],
         summary="Получение жанров с их представителями",
         parameters=[
-            OpenApiParameter(name='page',
-                             location=OpenApiParameter.QUERY,
-                             description='Номер страницы',
-                             required=False, type=int),
-            OpenApiParameter(name='name', location=OpenApiParameter.QUERY,
-                             description='Поиск по названию жанра',
-                             required=False, type=OpenApiTypes.STR),
+            OpenApiParameter(
+                name="page",
+                location=OpenApiParameter.QUERY,
+                description="Номер страницы",
+                required=False,
+                type=int,
+            ),
+            OpenApiParameter(
+                name="name",
+                location=OpenApiParameter.QUERY,
+                description="Поиск по названию жанра",
+                required=False,
+                type=OpenApiTypes.STR,
+            ),
         ],
     )
     def list(self, request):
-        queryset = Genre.objects.all().order_by('title')
-        if request.query_params.get('name'):
-            filter_value = request.query_params.get('name')
-            queryset = queryset.filter(Q(title__icontains=filter_value)
-                                       | Q(title__startswith=filter_value))
+        queryset = Genre.objects.all().order_by("title")
+        if request.query_params.get("name"):
+            filter_value = request.query_params.get("name")
+            queryset = queryset.filter(
+                Q(title__icontains=filter_value) | Q(title__startswith=filter_value)
+            )
         p = self.mypagination_class.paginate_queryset(queryset, request)
         serializer = GenreSerializer(p, many=True)
         resp = self.mypagination_class.get_paginated_response(serializer.data)
         return resp
 
     @extend_schema(
-        tags=['Жанр'],
+        tags=["Жанр"],
         summary="Добавление жанра",
     )
     def create(self, request):
@@ -239,7 +256,7 @@ class GenreViewSet(viewsets.ViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @extend_schema(
-        tags=['Жанр'],
+        tags=["Жанр"],
         summary="Удаление жанра по UUID",
     )
     def destroy(self, request, pk=None):
@@ -254,9 +271,7 @@ class GenreViewSet(viewsets.ViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     @extend_schema(
-        tags=['Жанр'],
-        summary="Модификация жанра по UUID",
-        request=BookSerializer
+        tags=["Жанр"], summary="Модификация жанра по UUID", request=BookSerializer
     )
     def update(self, request, pk=None):
         queryset = Genre.objects.all()
