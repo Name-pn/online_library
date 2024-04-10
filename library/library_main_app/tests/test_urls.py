@@ -1,7 +1,6 @@
 from django.test import SimpleTestCase
-from django.urls import reverse, resolve
-
-from library_main_app.views import BookViewSet, AuthorViewSet
+from django.urls import resolve, reverse
+from library_main_app.views import AuthorViewSet, BookViewSet
 
 
 class TestUrls(SimpleTestCase):

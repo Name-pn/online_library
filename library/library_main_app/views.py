@@ -1,12 +1,13 @@
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from drf_spectacular.types import OpenApiTypes
-from drf_spectacular.utils import extend_schema, OpenApiParameter
-from rest_framework import viewsets, status
-from rest_framework.response import Response
+from drf_spectacular.utils import OpenApiParameter, extend_schema
+from rest_framework import status, viewsets
 from rest_framework.pagination import PageNumberPagination
-from .models import Book, Author, Genre
-from .serializers import BookSerializer, AuthorSerializer, GenreSerializer
+from rest_framework.response import Response
+
+from .models import Author, Book, Genre
+from .serializers import AuthorSerializer, BookSerializer, GenreSerializer
 
 
 # Create your views here.

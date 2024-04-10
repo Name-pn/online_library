@@ -1,9 +1,8 @@
 import uuid
 
-from django.test import TestCase, Client
+from django.test import Client, TestCase
 from django.urls import reverse
-
-from library_main_app.models import Book, Author
+from library_main_app.models import Author, Book
 
 
 class TestViews(TestCase):
