@@ -1,4 +1,5 @@
 # Игнорируем всю папку venv
 .venv/
 .idea/
-library/library/settings.py
+requests.log
+library/db.json
