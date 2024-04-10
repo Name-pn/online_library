@@ -1,12 +1,13 @@
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from drf_spectacular.types import OpenApiTypes
-from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiRequest
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from .models import Book, Author, Genre
-from .serializers import BookSerializer, AuthorSerializer, GenreSerializer, UuidSerializer
+from .serializers import BookSerializer, AuthorSerializer, GenreSerializer
+
 
 # Create your views here.
 class MyPagination(PageNumberPagination):
@@ -14,7 +15,9 @@ class MyPagination(PageNumberPagination):
 
     def get_paginated_response(self, data):
         total_count = self.page.paginator.count
-        num_pages = int(total_count / self.page_size) if total_count % self.page_size == 0 else int(total_count / self.page_size) + 1
+        num_pages = int(total_count / self.page_size) \
+            if total_count % self.page_size == 0 \
+            else int(total_count / self.page_size) + 1
         return Response({
             'links': {
                 'next': self.get_next_link(),
@@ -24,9 +27,12 @@ class MyPagination(PageNumberPagination):
             'pages': num_pages,
             'results': data
         })
+
+
 class AuthorViewSet(viewsets.ViewSet):
     mypagination_class = MyPagination()
     serializer_class = AuthorSerializer
+
     @extend_schema(
         tags=['Автор'],
         summary="Получение автора по UUID",
@@ -40,10 +46,16 @@ class AuthorViewSet(viewsets.ViewSet):
         tags=['Автор'],
         summary="Получение страницы с авторами",
         parameters=[
-            OpenApiParameter(name='page', location=OpenApiParameter.QUERY, description='Номер страницы',
-                             required=False, type=int),
-            OpenApiParameter(name='name', location=OpenApiParameter.QUERY, description='Фильтр по имени автора',
-                             required=False, type=OpenApiTypes.STR),
+            OpenApiParameter(name='page',
+                             location=OpenApiParameter.QUERY,
+                             description='Номер страницы',
+                             required=False,
+                             type=int),
+            OpenApiParameter(name='name',
+                             location=OpenApiParameter.QUERY,
+                             description='Фильтр по имени автора',
+                             required=False,
+                             type=OpenApiTypes.STR),
         ],
     )
     def list(self, request):
@@ -98,6 +110,7 @@ class AuthorViewSet(viewsets.ViewSet):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class BookViewSet(viewsets.ViewSet):
     mypagination_class = MyPagination()
     serializer_class = BookSerializer
@@ -115,9 +128,13 @@ class BookViewSet(viewsets.ViewSet):
         tags=['Книга'],
         summary="Получение страницы с книгами",
         parameters=[
-            OpenApiParameter(name='page', location=OpenApiParameter.QUERY, description='Номер страницы',
+            OpenApiParameter(name='page',
+                             location=OpenApiParameter.QUERY,
+                             description='Номер страницы',
                              required=False, type=int),
-            OpenApiParameter(name='name', location=OpenApiParameter.QUERY, description='Поиск по названию книги',
+            OpenApiParameter(name='name',
+                             location=OpenApiParameter.QUERY,
+                             description='Поиск по названию книги',
                              required=False, type=OpenApiTypes.STR),
         ],
     )
@@ -158,7 +175,6 @@ class BookViewSet(viewsets.ViewSet):
         author.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
     @extend_schema(
         tags=['Книга'],
         summary="Модификация книги по UUID",
@@ -172,6 +188,7 @@ class BookViewSet(viewsets.ViewSet):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class GenreViewSet(viewsets.ViewSet):
     mypagination_class = MyPagination()
@@ -190,9 +207,12 @@ class GenreViewSet(viewsets.ViewSet):
         tags=['Жанр'],
         summary="Получение жанров с их представителями",
         parameters=[
-            OpenApiParameter(name='page', location=OpenApiParameter.QUERY, description='Номер страницы',
+            OpenApiParameter(name='page',
+                             location=OpenApiParameter.QUERY,
+                             description='Номер страницы',
                              required=False, type=int),
-            OpenApiParameter(name='name', location=OpenApiParameter.QUERY, description='Поиск по названию жанра',
+            OpenApiParameter(name='name', location=OpenApiParameter.QUERY,
+                             description='Поиск по названию жанра',
                              required=False, type=OpenApiTypes.STR),
         ],
     )
@@ -232,7 +252,6 @@ class GenreViewSet(viewsets.ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
         author.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
 
     @extend_schema(
         tags=['Жанр'],

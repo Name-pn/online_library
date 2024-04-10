@@ -14,9 +14,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Genre',
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, primary_key=True, serialize=False, unique=True)),
+                ('id', models.UUIDField(default=uuid.uuid4,
+                                        primary_key=True,
+                                        serialize=False,
+                                        unique=True)),
                 ('title', models.CharField(max_length=255, unique=True)),
-                ('books', models.ManyToManyField(blank=True, related_name='books_by_genre', to='library_main_app.book')),
+                ('books',
+                 models.ManyToManyField(blank=True,
+                                        related_name='books_by_genre',
+                                        to='library_main_app.book')),
             ],
         ),
     ]

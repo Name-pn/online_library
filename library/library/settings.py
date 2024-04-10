@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'App',
         'USER': 'postgres',
         'PASSWORD': '1111',
-        'HOST': 'postgres', # 0.0.0.0 postgres localhost
+        'HOST': 'postgres',
         'PORT': 5432,
     }
 }
@@ -156,14 +156,6 @@ LOGGING = {
     }
 }
 
-# SPECTACULAR_SETTINGS = {
-#         'TITLE': 'My API Title',
-#         'DESCRIPTION': 'My API Description',
-#         'TERMS_OF_SERVICE': 'https://myapiterms.com',
-#         'CONTACT': {'name': 'API Support', 'email': 'support@myapi.com'},
-#         'LICENSE': {'name': 'Apache 2.0', 'url': 'http://www.apache.org/licenses/LICENSE-2.0.html'},
-# }
-
 # Настройка для drf-spectacular
 SPECTACULAR_SETTINGS = {
     # Путь к файлу, где будет сохранена сгенерированная спецификация OpenAPI
@@ -173,11 +165,9 @@ SPECTACULAR_SETTINGS = {
     # Использовать ли встроенный документатор Redoc
     'USE_REDOC': False,
     # Имя схемы, отображаемое в Swagger UI
-    'INFO': {
-        'TITLE': 'My API Title',
-        'DESCRIPTION': 'My API Description',
-        'TERMS_OF_SERVICE': 'https://myapiterms.com',
-        'CONTACT': {'name': 'API Support', 'email': 'support@myapi.com'},
-        'LICENSE': {'name': 'Apache 2.0', 'url': 'http://www.apache.org/licenses/LICENSE-2.0.html'},
-    },
+    'TITLE': 'My API Title',
+    'DESCRIPTION': 'My API Description',
+    'TERMS_OF_SERVICE': 'https://myapiterms.com',
+    'CONTACT': {'name': 'API Support', 'email': 'support@myapi.com'},
+    'LICENSE': {'name': 'Apache 2.0', 'url': 'http://www.apache.org/licenses/LICENSE-2.0.html'},
 }

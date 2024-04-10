@@ -3,18 +3,14 @@
 import uuid
 from django.db import migrations, models
 
+
 def author_uuid_forward(apps, schema_editor):
-    #print("Мы в author_uuid_forward!!!")
     db_alias = schema_editor.connection.alias
     Author = apps.get_model('library_main_app', 'Author')
     for author in Author.objects.using(db_alias).all():
         author.uuid = uuid.uuid4()
         author.save()
-        #print("Мы завершили !!!", author)
 
-def indicator(apps, schema_editor):
-    pass
-    #print("Мы дошли!!!")
 
 class Migration(migrations.Migration):
 
@@ -29,28 +25,28 @@ class Migration(migrations.Migration):
             field=models.UUIDField(null=True)
         ),
         migrations.RunPython(author_uuid_forward),
-        #default=uuid.uuid4, editable=False, serialize=False
         migrations.AlterField(
             model_name='author',
             name='uuid',
             field=models.UUIDField(default=uuid.uuid4, editable=False, serialize=False),
         ),
-        migrations.RunPython(indicator),
         migrations.RemoveField(
             model_name='author',
             name='id',
         ),
-        migrations.RunPython(indicator),
         migrations.RenameField(
             model_name='author',
             old_name='uuid',
             new_name='id',
         ),
-        migrations.RunPython(indicator),
         migrations.AlterField(
             model_name='author',
             name='id',
-            field=models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False, unique=True),
+            field=models.UUIDField(
+                default=uuid.uuid4,
+                editable=False,
+                primary_key=True,
+                serialize=False,
+                unique=True),
         ),
-        migrations.RunPython(indicator),
     ]
