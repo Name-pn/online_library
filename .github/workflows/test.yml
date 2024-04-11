@@ -14,8 +14,7 @@ jobs:
         pip3 install -r ./library/requirenments.txt
     - name: Run Unit Tests
       run: |
-        ls
-        pytest --cov=app app/
+        pytest --cov --import-mode=importlib
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
