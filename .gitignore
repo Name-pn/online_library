@@ -3,3 +3,4 @@
 .idea/
 requests.log
 library/db.json
+library/.coverage

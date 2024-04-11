@@ -95,7 +95,7 @@ class AuthorViewSet(viewsets.ViewSet):
         if not uuid:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         try:
-            author = Author.objects.get(uuid=uuid)
+            author = Author.objects.get(id=uuid)
         except Author.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         author.delete()
@@ -181,7 +181,7 @@ class BookViewSet(viewsets.ViewSet):
         if not uuid:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         try:
-            author = Book.objects.get(uuid=uuid)
+            author = Book.objects.get(id=uuid)
         except Book.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         author.delete()
