@@ -5,6 +5,15 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres
+        env:
+          POSTGRES_DB: App
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 1111
+        ports:
+          - 5432:5432
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies
