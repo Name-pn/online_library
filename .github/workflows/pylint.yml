@@ -20,7 +20,6 @@ jobs:
         pip install flake8 black isort
     - name: Analysing the code with flake8 black isort
       run: |
-        flake8 . --exclude=.git,.tox,venv,build,dist --max-line-length=100
+        flake8 . --exclude=.git,.tox,.venv,build,dist --max-line-length=100
         black --check .
         isort --check-only .
-        #pylint $(git ls-files '*.py')

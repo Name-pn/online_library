@@ -1,0 +1,25 @@
+name: Test Coverage
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-pip
+        pip3 install -r ./library/requirenments.txt
+    - name: Run Unit Tests
+      run: |
+        pytest --cov --import-mode=importlib --rootdir=D:\programms\TestTaskMoscow\library --config-file=./library/pytest.ini
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: true
