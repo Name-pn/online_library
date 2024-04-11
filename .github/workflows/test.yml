@@ -15,6 +15,9 @@ jobs:
         ports:
           - 5432:5432
     steps:
+    - name: Test
+      run: |
+        echo ${{ secrets.CODECOV_TOKEN }}
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: |
@@ -32,6 +35,4 @@ jobs:
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: true
-    - name: Test
-      run: |
-        echo ${{ secrets.CODECOV_TOKEN }}
+    
