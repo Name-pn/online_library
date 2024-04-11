@@ -1,6 +1,7 @@
 # Игнорируем всю папку venv
 .venv/
 .idea/
+library/.idea
 requests.log
 library/db.json
 library/.coverage
