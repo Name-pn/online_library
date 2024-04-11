@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: Test
       run: |
-        echo ${{ env.test }}
+        echo ${{ secrets.TEST }}
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: |
