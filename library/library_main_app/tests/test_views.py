@@ -23,8 +23,8 @@ class TestViews(TestCase):
             id=self.author_uuid,
         )
 
-        self.book_detail_url = reverse("book_by_uuid", args=[str(self.book_uuid)])
-        self.author_detail_url = reverse("author_by_uuid", args=[str(self.author_uuid)])
+        self.book_detail_url = reverse("books-detail", args=[str(self.book_uuid)])
+        self.author_detail_url = reverse("authors-detail", args=[str(self.author_uuid)])
 
     def test_books_page_GET(self):
         response = self.client.get(self.books_url)
