@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-h&uv2%qdam%=p88@0b1dqv1qxqq=op-j*f0ekhp^x#)ydftr#r"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
@@ -165,12 +166,13 @@ SPECTACULAR_SETTINGS = {
     # Использовать ли встроенный документатор Redoc
     "USE_REDOC": False,
     # Имя схемы, отображаемое в Swagger UI
-    "TITLE": "My API Title",
-    "DESCRIPTION": "My API Description",
+    "TITLE": "Свагер",
+    "DESCRIPTION": "Описание моего API",
     "TERMS_OF_SERVICE": "https://myapiterms.com",
-    "CONTACT": {"name": "API Support", "email": "support@myapi.com"},
+    "CONTACT": {"name": "Почта автора", "email": "example@example.com"},
     "LICENSE": {
         "name": "Apache 2.0",
         "url": "http://www.apache.org/licenses/LICENSE-2.0.html",
     },
+    "VERSION": "1.0.0"
 }
