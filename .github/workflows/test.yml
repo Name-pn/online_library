@@ -5,7 +5,19 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres
+        env:
+          POSTGRES_DB: App
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 1111
+        ports:
+          - 5432:5432
     steps:
+    - name: Test
+      run: |
+        echo ${{ secrets.TEST }}
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: |
@@ -14,14 +26,13 @@ jobs:
         pip3 install -r ./requirenments.txt
     - name: Run Unit Tests
       run: |
-        ls
-        pwd
-        pytest --cov --import-mode=importlib --rootdir=./library/ --config-file=./library/pytest.ini
+        pytest --cov=. --import-mode=importlib --rootdir=./library/ --config-file=./library/pytest.ini --cov-report term --cov-report xml:coverage.xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
+        token: ${{ secrets.TEST }}
+        file: coverage.xml
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: true
+    
