@@ -23,8 +23,8 @@ python library/manage.py runserver 8001
 ```
 Table with .env vars below
 
-|     **Переменная**    |            **Условие**           |                                **Действие**                               | **Действие если условие не выполнено**                                                                                 |
-|:---------------------:|:--------------------------------:|:-------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------------------------------|
-| MODE                  | "$MODE" == docker                | Изменяет хост базы данных postgres на тот, который поддерживается докером | Хост базы данных остается localhost, что означает возможность запуска сервера на локальном компьютере через manage.py  |
-| DEBUG                 | "$DEBUG" == True                 | DEBUG = True в настройках Django                                          | DEBUG = False в настройках Django                                                                                      |
-| LOAD_DEFAULT_DATABASE | "$LOAD_DEFAULT_DATABASE" == True | Загружает тестовый пакет данных из db.json в базу данных                  | Отключает загрузку тестовых данных в БД                                                                                | 
+|     **Переменная**    |           **Condition**          |                        **Effect**                        | **Effect, if condition is false**                                                           |
+|:---------------------:|:--------------------------------:|:--------------------------------------------------------:|---------------------------------------------------------------------------------------------|
+| MODE                  | "$MODE" == docker                | Change host of database postgres on one supported docker | Change host of database postgres on one supported default os which has postgres application |
+| DEBUG                 | "$DEBUG" == True                 | DEBUG = True in settings Django                          | DEBUG = False in settings Django                                                            |
+| LOAD_DEFAULT_DATABASE | "$LOAD_DEFAULT_DATABASE" == True | Load test data packet from db.json in database           | Switch off loading test data in database                                                    |
