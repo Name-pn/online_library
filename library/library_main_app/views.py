@@ -12,16 +12,16 @@ class MyPagination(PageNumberPagination):
     page_size = 2  # Задаем размер страницы, по умолчанию 2
 
 
-class SearchMixin():
+class SearchMixin:
     def get_queryset(self):
         queryset = self.queryset
-        name = self.request.query_params.get('name', '')
+        name = self.request.query_params.get("name", "")
         if name:
             queryset = queryset.filter(title__icontains=name)
         return queryset
 
-class AuthorViewSet(SearchMixin,
-                    viewsets.ModelViewSet):
+
+class AuthorViewSet(SearchMixin, viewsets.ModelViewSet):
     pagination_class = MyPagination
     serializer_class = AuthorSerializer
     queryset = Author.objects.all()
@@ -50,16 +50,12 @@ class AuthorViewSet(SearchMixin,
         return super().list(request)
 
     @extend_schema(
-        tags=["Автор"],
-        summary="Добавление автора",
-        request=AuthorSerializer
+        tags=["Автор"], summary="Добавление автора", request=AuthorSerializer
     )
     def create(self, request):
         return super().create(request)
 
-    @extend_schema(
-        tags=["Автор"],
-        summary="Удаление автора по UUID")
+    @extend_schema(tags=["Автор"], summary="Удаление автора по UUID")
     def destroy(self, request, pk=None):
         return super().destroy(request)
 
@@ -71,8 +67,8 @@ class AuthorViewSet(SearchMixin,
     def update(self, request, pk=None):
         return super().update(request)
 
-class BookViewSet(SearchMixin,
-                  viewsets.ModelViewSet):
+
+class BookViewSet(SearchMixin, viewsets.ModelViewSet):
     pagination_class = MyPagination
     serializer_class = BookSerializer
     queryset = Book.objects.all()
@@ -120,8 +116,8 @@ class BookViewSet(SearchMixin,
     def update(self, request, pk=None):
         return super().update(request)
 
-class GenreViewSet(SearchMixin,
-                   viewsets.ModelViewSet):
+
+class GenreViewSet(SearchMixin, viewsets.ModelViewSet):
     pagination_class = MyPagination
     serializer_class = GenreSerializer
     queryset = Genre.objects.all()
@@ -164,9 +160,7 @@ class GenreViewSet(SearchMixin,
         return super().destroy(request)
 
     @extend_schema(
-        tags=["Жанр"],
-        summary="Модификация жанра по UUID",
-        request=BookSerializer
+        tags=["Жанр"], summary="Модификация жанра по UUID", request=BookSerializer
     )
     def update(self, request, pk=None):
         return super().update(request)

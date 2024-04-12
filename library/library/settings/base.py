@@ -174,5 +174,5 @@ SPECTACULAR_SETTINGS = {
         "name": "Apache 2.0",
         "url": "http://www.apache.org/licenses/LICENSE-2.0.html",
     },
-    "VERSION": "1.0.0"
+    "VERSION": "1.0.0",
 }
