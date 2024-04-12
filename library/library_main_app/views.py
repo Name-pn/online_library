@@ -14,7 +14,7 @@ class MyPagination(PageNumberPagination):
 
 class SearchMixin:
     def get_queryset(self):
-        queryset = self.queryset
+        queryset = self.queryset.order_by("title")
         name = self.request.query_params.get("name", "")
         if name:
             queryset = queryset.filter(title__icontains=name)

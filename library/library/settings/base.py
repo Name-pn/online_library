@@ -29,7 +29,7 @@ DEBUG = os.environ.get("DEBUG")
 ALLOWED_HOSTS = ["*"]
 
 STATIC_ROOT = BASE_DIR.parent / "static/"
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 # Application definition
 
 INSTALLED_APPS = [

@@ -1,25 +1,8 @@
-import sys
 import uuid
 
-import pytest
 from django.test import Client, TestCase
 from django.urls import reverse
 from library_main_app.models import Author, Book
-
-
-@pytest.mark.skip(reason="не готов для тестирования")
-def test_skipped():
-    return None
-
-
-@pytest.mark.skipif(sys.version_info < (3, 7), reason="Требует Python 3.7 и выше")
-def test_function():
-    return None
-
-
-@pytest.mark.xfail
-def test_failed():
-    return 1 / 0
 
 
 class TestViews(TestCase):
