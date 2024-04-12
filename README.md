@@ -21,8 +21,10 @@ Default value docker of mode var telling us that we use docker, but you can chan
 ```bash
 python library/manage.py runserver 8001
 ```
-For run application on your os and dont get error message. But you need install all requirements from requirements.txt or library/requirements.txt for your python venv.
+Table with .env vars below
 
-You also can swith on DEBUG mode setting value True for DEBUG var in .env
-
-Next you can use loading default database from library/db.json when you set LOAD_DEFAULT_DATABASE var value to "True"
+|     **Переменная**    |            **Условие**           |                                **Действие**                               | **Действие если условие не выполнено**                                                                                 |
+|:---------------------:|:--------------------------------:|:-------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------------------------------|
+| MODE                  | "$MODE" == docker                | Изменяет хост базы данных postgres на тот, который поддерживается докером | Хост базы данных остается localhost, что означает возможность запуска сервера на локальном компьютере через manage.py  |
+| DEBUG                 | "$DEBUG" == True                 | DEBUG = True в настройках Django                                          | DEBUG = False в настройках Django                                                                                      |
+| LOAD_DEFAULT_DATABASE | "$LOAD_DEFAULT_DATABASE" == True | Загружает тестовый пакет данных из db.json в базу данных                  | Отключает загрузку тестовых данных в БД                                                                                | 
