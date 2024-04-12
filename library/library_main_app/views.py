@@ -25,6 +25,7 @@ class AuthorViewSet(SearchMixin, viewsets.ModelViewSet):
     pagination_class = MyPagination
     serializer_class = AuthorSerializer
     queryset = Author.objects.all()
+    http_method_names = ["get", "post", "put", "delete"]
 
     @extend_schema(
         tags=["Автор"],
@@ -72,6 +73,7 @@ class BookViewSet(SearchMixin, viewsets.ModelViewSet):
     pagination_class = MyPagination
     serializer_class = BookSerializer
     queryset = Book.objects.all()
+    http_method_names = ["get", "post", "put", "delete"]
 
     @extend_schema(
         tags=["Книга"],
@@ -121,6 +123,7 @@ class GenreViewSet(SearchMixin, viewsets.ModelViewSet):
     pagination_class = MyPagination
     serializer_class = GenreSerializer
     queryset = Genre.objects.all()
+    http_method_names = ["get", "post", "put", "delete"]
 
     @extend_schema(
         tags=["Жанр"],

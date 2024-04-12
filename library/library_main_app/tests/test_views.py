@@ -8,8 +8,8 @@ from library_main_app.models import Author, Book
 class TestViews(TestCase):
     def setUp(self):
         self.client = Client()
-        self.books_url = reverse("books")
-        self.author_url = reverse("authors")
+        self.books_url = reverse("books-list")
+        self.author_url = reverse("authors-list")
 
         self.book_uuid = uuid.uuid4()
         self.book1 = Book.objects.create(
