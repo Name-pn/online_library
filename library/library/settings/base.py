@@ -28,8 +28,6 @@ DEBUG = os.environ.get("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
-STATIC_ROOT = BASE_DIR.parent / "static/"
-STATIC_URL = "/static/"
 # Application definition
 
 INSTALLED_APPS = [
@@ -125,6 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATIC_ROOT = BASE_DIR.parent / "static/"
 STATIC_URL = "static/"
 
 # Default primary key field type

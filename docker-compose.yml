@@ -18,12 +18,25 @@ services:
   django:
     container_name: online-library-django
     build: ./library
-    ports:
-      - 8001:8001
+    expose:
+      - 8001
     depends_on:
       - postgres
     env_file:
       - .env
+    volumes:
+      - static_volume:/usr/src/backend/static
+
+  nginx:
+    container_name: online-library-nginx
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - static_volume:/usr/src/static
+    depends_on:
+      - django
 
 volumes:
   postgres_data:
+  static_volume:

@@ -28,3 +28,7 @@ Table with .env vars below
 | MODE                  | "$MODE" == docker                | Change host of database postgres on one supported docker | Change host of database postgres on one supported default os which has postgres application |
 | DEBUG                 | "$DEBUG" == True                 | DEBUG = True in settings Django                          | DEBUG = False in settings Django                                                            |
 | LOAD_DEFAULT_DATABASE | "$LOAD_DEFAULT_DATABASE" == True | Load test data packet from db.json in database           | Switch off loading test data in database                                                    |
+
+## About default database
+Default database contains 43 authors, 36 books, 3 genres.
+If you want to login into admin service of Django you can use next. Login "Sasha", password "1111". Don't forget to change the administrator if you will use default database.
