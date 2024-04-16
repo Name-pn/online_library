@@ -10,17 +10,19 @@
 docker-compose build
 docker-compose up
 ```
-3. In your browser in your browser go to "localhost:8001". You will see message from the site.
+3. In your browser in your browser go to "localhost:80" or "localhost". You will see message from the site.
 ## What you may next
-1. You can go to "localhost:8001/api/docs" for knowing swager. 
-2. You can go to "localhost:8001/admin" for knowing admin of django web-site.
+1. You can go to "localhost:80/api/docs" for knowing swager. 
+2. You can go to "localhost:80/admin" for knowing admin of django web-site.
 3. You can send request to API
 ## About .env file
 You can change some settings when you change .env file.
 Default value docker of mode var telling us that we use docker, but you can change it to "none" and then you can use 
 ```bash
-python library/manage.py runserver 8001
+python library/manage.py runserver 8001 --insecure
 ```
+The key insecure tell Django use static files for admin menu in "Debug=" mode.
+
 Table with .env vars below
 
 |     **Переменная**    |           **Condition**          |                        **Effect**                        | **Effect, if condition is false**                                                           |
